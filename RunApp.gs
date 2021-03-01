@@ -16,7 +16,7 @@ function GmailScan() {
     // Declare attachment name as var
     var filename = attachment.getName();
     // Does the attachment name match?
-    if (attachment.getName() === 'candidates.xlsx') {
+    if (filename === 'candidates.xlsx') {
         // Test file date and name with console.log
         console.log(msgDate);
         console.log(filename);
