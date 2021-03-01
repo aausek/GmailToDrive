@@ -2,7 +2,7 @@
 function GmailScan() {
 
     // Gets latest message from sender email
-    var threads = GmailApp.search('in:inbox from:"do-not-reply@candidatecare.com"');
+    var threads = GmailApp.search('in:inbox from:"email-address-goes-here"');
     var messages = threads[0].getMessages();
     var message = messages[messages.length - 1];
     var msgDate = message.getDate();
@@ -32,7 +32,7 @@ function convertExceltoGS(filename, msgDate) {
     // From Google Drive App, search for file by name
     var excelFile = DriveApp.getFilesByName(filename).next();
     // From main Drive folder by ID
-    var folderId = "1f_bAl6UoZr5V5W1D222GTvhzWkP5DZYO";
+    var folderId = "folder-ID-goes-here";
     var blob = excelFile.getBlob();
 
     // Create file with name and formatted date
@@ -77,7 +77,7 @@ function CopyRange(msgDate) {
     var data = range.getValues();
 
     // Open master google sheet ('New_Hire') by ID and paste contents from previous file
-    var tss = SpreadsheetApp.openById('1A6s5HZH0T26xhtkrBxzXsicpfNWvK2sPlYBUZKX-NEM'); //replace with destination ID
+    var tss = SpreadsheetApp.openById('google-sheet-ID-goes-here'); //replace with destination ID
     // Specify which master google sheet to copy into
     var ts = tss.getSheetByName('Sheet1'); //replace with destination Sheet tab name
     // Ensure contents are pasted into next available blank row -- TO PREVENT OVERWRITING CONTENTS
