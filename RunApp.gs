@@ -22,12 +22,12 @@ function GmailScan() {
         console.log(filename);
 
         // Call function to create google sheet with file name and date
-        convertExceltoGoogleSpreadsheet(filename, msgDate);
+        convertExceltoGS(filename, msgDate);
     }
 }
 
 // Convert excel file attachment to google sheet
-function convertExceltoGoogleSpreadsheet(filename, msgDate) {
+function convertExceltoGS(filename, msgDate) {
 
     // From Google Drive App, search for file by name
     var excelFile = DriveApp.getFilesByName(filename).next();
@@ -81,7 +81,7 @@ function CopyRange(msgDate) {
     // Specify which master google sheet to copy into
     var ts = tss.getSheetByName('Sheet1'); //replace with destination Sheet tab name
     // Ensure contents are pasted into next available blank row -- TO PREVENT OVERWRITING CONTENTS
-    ts.getRange(ts.getLastRow() + 1, 2, 99, 38).setValues(data); //you will need to define the size of the copied data see getRange()
+    ts.getRange(ts.getLastRow() + 1, 2, 99, 38).setValues(data); // Define dimensions of copied data (row, column, numRows, numCols)
     console.log("Copied into master");
 
 }
