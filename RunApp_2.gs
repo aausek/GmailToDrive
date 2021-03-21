@@ -2,9 +2,9 @@
 function ScanGmail() {
 
     // Logs information about any attachments in the first 100 inbox threads.
-    var threads = GmailApp.search('in:inbox from:"do-not-reply@candidatecare.com"');
+    var threads = GmailApp.search('in:inbox from:"email_goes_here"');
     var msgs = GmailApp.getMessagesForThreads(threads);
-    var folderId = "1f_bAl6UoZr5V5W1D222GTvhzWkP5DZYO";
+    var folderId = "ID_goes_here";
     var todayDate = Utilities.formatDate(new Date(), "EST", 'yyyy-MM-dd');
     for (var i = 0; i < msgs.length; i++) {
         for (var j = 0; j < msgs[i].length; j++) {
@@ -43,7 +43,7 @@ function convertFile(attachmentName, attDate) {
     // From Google Drive App, search for file by name
     var excelFile = DriveApp.getFilesByName(attachmentName).next();
     // From main Drive folder by ID
-    var folderId = "1f_bAl6UoZr5V5W1D222GTvhzWkP5DZYO";
+    var folderId = "ID_goes_here";
     var blob = excelFile.getBlob();
 
     // Create file with name and formatted date
@@ -83,12 +83,12 @@ function CopyRange(fileName) {
     // Open located file by its ID
     var sss = SpreadsheetApp.openById(fileID); //replace with source ID
     // From its (single) sheet, copy contents
-    var ss = sss.getSheetByName('New Hire Report (IT)'); //replace with source Sheet tab name
+    var ss = sss.getSheetByName('Master_file_sheet_name'); //replace with source Sheet tab name
     var range = ss.getRange('A2:AL100'); //assign the range you want to copy
     var data = range.getValues();
 
     // Open master google sheet ('New_Hire') by ID and paste contents from previous file
-    var tss = SpreadsheetApp.openById('1A6s5HZH0T26xhtkrBxzXsicpfNWvK2sPlYBUZKX-NEM'); //replace with destination ID
+    var tss = SpreadsheetApp.openById('ID_goes_here'); //replace with destination ID
     // Specify which master google sheet to copy into
     var ts = tss.getSheetByName('Sheet1'); //replace with destination Sheet tab name
     // Ensure contents are pasted into next available blank row -- TO PREVENT OVERWRITING CONTENTS
