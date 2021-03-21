@@ -72,7 +72,7 @@ function CopyRange(msgDate) {
     // Open located file by its ID
     var sss = SpreadsheetApp.openById(fileID); //replace with source ID
     // From its (single) sheet, copy contents
-    var ss = sss.getSheetByName('New Hire Report (IT)'); //replace with source Sheet tab name
+    var ss = sss.getSheetByName('Master-file-sheet-name'); //replace with source Sheet tab name
     var range = ss.getRange('A2:AL100'); //assign the range you want to copy
     var data = range.getValues();
 
