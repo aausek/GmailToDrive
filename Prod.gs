@@ -113,4 +113,4 @@ function CopyRange(fileName) {
 
 }
 
-// Sorting function - Gather requirements from Alex
+// Sorting function - Gather requirements
